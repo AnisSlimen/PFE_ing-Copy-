@@ -1,0 +1,153 @@
+\documentclass[a4paper, 11pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+\usepackage[francais]{}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{tabu}
+\usepackage{geometry}
+\usepackage{acronym}
+\usepackage{minitoc}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage[sorting=none]{biblatex}
+\addbibresource{reference.bib}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{dirtytalk}
+\usepackage{enumitem}
+\setlist[enumerate]{itemsep=0mm}
+\setlist[itemize]{itemsep=0mm}
+\usepackage{graphicx}
+\graphicspath{ {./figures/} }
+
+
+%multiple columns can be created 
+\usepackage{multicol}
+
+\usepackage{xcolor}
+\usepackage{subcaption}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+
+\lstset{style=mystyle}
+
+
+\usepackage{sectsty}
+\chapterfont{\centering}
+\geometry{a4paper, tmargin=1in, rmargin=1in, bmargin=1in, lmargin=1in}
+
+
+\usepackage{cryptocode}
+
+
+
+% sets roll number , name and title
+\newcommand{\rollno}{roll number}
+\newcommand{\name}{name}
+\newcommand{\topic}{Title}
+\newcommand{\guide}{guide name}
+\newcommand{\hod}{HOD name}
+
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{2pt}
+\fancyhead[R]{\footnotesize{\leftmark}}
+%%\fancyfoot[RE,LO]{}
+\fancyfoot[C]{\textbf{\thepage}}
+
+
+
+
+
+\renewcommand*\contentsname{\hfill\textbf{\textbf{\fontsize{16pt}{24pt}\selectfont Table des matières}} \hfill}
+\renewcommand{\bibname}{REFERENCES}
+\setcounter{tocdepth}{5}
+\setcounter{secnumdepth}{5}
+
+%\makeglossaries
+\begin{document}
+\adjustmtc
+\include{mytitle}
+
+\pagenumbering{gobble}
+\include{Résumé}
+\include{Remerciement}
+
+%\addcontentsline{toc}{chapter}{Dédicaces}
+\pagenumbering{roman}
+\input{Dédicace}
+\renewcommand{\listtablename}{Liste des tableaux}
+\renewcommand{\listfigurename}{Liste des figures}
+%\renewcommand{\Glossairedesacronymes}{Glossaire des acronymes}
+\tableofcontents
+
+\cleardoublepage
+\addcontentsline{toc}{chapter}{\listfigurename}
+\listoffigures
+
+\cleardoublepage
+\addcontentsline{toc}{chapter}{\listtablename}
+\listoftables
+
+\cleardoublepage
+%\printglossaries
+\addcontentsline{toc}{chapter}{Glossaire des acronymes}
+
+\input{Glossaire}
+
+\cleardoublepage
+\addcontentsline{toc}{chapter}{Introduction Générale}
+\mark{INTRODUCTION GÉNÉRALE}
+\pagenumbering{arabic}
+\input{Introduction}
+
+
+\chapter{ Cadre du projet} \label{ch:Organisme_d'accueil}
+
+\input{Chapitre1}
+
+\chapter{ Spécification des besoins} \label{ch:specification_techniq}
+\input{Chapitre2}
+
+\chapter{Conception } \label{ch:conc}
+\input{Chapter3}
+
+\chapter{Réalisation } \label{ch:réalis}
+\input{Chapter4}
+\addcontentsline{toc}{chapter}{Conclusion Générale}
+\input{Conclusion}
+\addcontentsline{toc}{chapter}{Webographie} 
+\input{webo}
+
+\printbibliography
+
+
+
+\end{document}          
